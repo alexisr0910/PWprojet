@@ -1,5 +1,23 @@
 controllers:
-    resource:
-        path: ../src/Controller/
-        namespace: App\Controller
-    type: attribute
+  resource: ../src/Controller/
+  type: attribute
+
+index:
+  path: /
+  controller: App\Controller\TestController::index
+
+test:
+  path: /test/{departement}
+  controller: App\Controller\TestController::test
+
+
+index2:
+  path: /hello/{departement}
+  controller: App\Controller\HelloController::index2
+  defaults:
+    departement: Morbihan
+    age: 35
+  requirements:
+    departement: \d+
+    age: \d+
+    method: [POST]
